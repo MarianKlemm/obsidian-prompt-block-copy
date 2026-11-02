@@ -1,5 +1,5 @@
-.prompt-block-copy-host {
-  position: relative;
+.prompt-block-copy-host > .copy-code-button {
+  display: none !important;
 }
 
 .prompt-block-copy-button {
