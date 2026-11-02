@@ -2,7 +2,7 @@
   "id": "prompt-block-copy",
   "name": "Prompt Block Copy",
   "version": "1.0.0",
-  "minAppVersion": "1.5.0",
+  "minAppVersion": "1.14.5",
   "description": "Copy prompt code blocks with a single click.",
   "author": "Marian Klemm",
   "isDesktopOnly": false
