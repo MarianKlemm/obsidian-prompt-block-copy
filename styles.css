@@ -1,0 +1,43 @@
+.prompt-block-copy-host {
+  position: relative;
+}
+
+.prompt-block-copy-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 20;
+
+  min-width: 116px;
+  height: 30px;
+  padding: 0 10px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 7px;
+
+  background: var(--background-primary);
+  color: var(--text-muted);
+
+  font-family: var(--font-interface);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.prompt-block-copy-button:hover {
+  color: var(--text-normal);
+  background: var(--background-modifier-hover);
+}
+
+.prompt-block-copy-button.is-copied {
+  color: var(--text-success, var(--text-accent));
+  border-color: var(--text-success, var(--interactive-accent));
+}
