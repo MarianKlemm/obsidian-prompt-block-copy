@@ -2,7 +2,7 @@
   position: relative;
 }
 
-.prompt-block-copy-host > .copy-code-button {
+.prompt-block-copy-host .copy-code-button {
   display: none !important;
 }
 
