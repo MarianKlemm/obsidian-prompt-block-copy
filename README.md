@@ -11,7 +11,7 @@ Prompt Block Copy adds a dedicated copy button to fenced prompt-style code block
 - Shows a short **Copied ✓** confirmation after a successful copy.
 - Prevents the copy action from switching the code block into edit mode.
 - Uses Obsidian theme variables for light and dark mode.
-- Avoids adding its own button when another copy button is already present.
+- Replaces the existing code-block copy button with a dedicated **Copy prompt** button for supported prompt blocks.
 
 ## Supported code blocks
 
