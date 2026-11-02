@@ -16,21 +16,9 @@ module.exports = class PromptBlockCopyPlugin extends Plugin {
 
         if (!code) return;
 
-        const existingCopyButton = pre.querySelector(
-          ":scope > .copy-code-button"
-        );
-
         const ownButton = pre.querySelector(
           ":scope > .prompt-block-copy-button"
         );
-
-        // Do not compete with Obsidian or another plugin that already
-        // provides a copy button for this block.
-        if (existingCopyButton) {
-          ownButton?.remove();
-          pre.classList.remove("prompt-block-copy-host");
-          return;
-        }
 
         if (ownButton) return;
 
@@ -70,9 +58,9 @@ module.exports = class PromptBlockCopyPlugin extends Plugin {
             stopEditorActivation(event);
 
             try {
-              await navigator.clipboard.writeText(
-                code.textContent ?? ""
-              );
+              const text = code.textContent ?? "";
+
+              await navigator.clipboard.writeText(text);
 
               button.textContent = "Copied ✓";
               button.classList.add("is-copied");
@@ -103,7 +91,10 @@ module.exports = class PromptBlockCopyPlugin extends Plugin {
       if (this.scanScheduled) return;
 
       this.scanScheduled = true;
-      window.requestAnimationFrame(this.scan);
+
+      window.requestAnimationFrame(() => {
+        this.scan();
+      });
     };
 
     this.observer = new MutationObserver(() => {
@@ -143,8 +134,8 @@ module.exports = class PromptBlockCopyPlugin extends Plugin {
 
     document
       .querySelectorAll(".prompt-block-copy-host")
-      .forEach((pre) =>
-        pre.classList.remove("prompt-block-copy-host")
-      );
+      .forEach((pre) => {
+        pre.classList.remove("prompt-block-copy-host");
+      });
   }
 };
